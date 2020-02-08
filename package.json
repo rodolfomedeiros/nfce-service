@@ -1,0 +1,16 @@
+{
+  "name": "cestao_backend",
+  "version": "1.0.0",
+  "description": "An app to help and reduce costs on monthly purchases with help from the users",
+  "main": "src/index.js",
+  "private": true,
+  "scripts": {
+    "dev": "nodemon src/index.js"
+  },
+  "dependencies": {
+    "puppeteer": "^2.1.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.2"
+  }
+}
