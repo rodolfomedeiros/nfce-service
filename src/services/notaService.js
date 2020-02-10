@@ -1,18 +1,11 @@
 const puppeteer = require('puppeteer');
 
-const config = require('./config/config');
-const notaSelectors = require('./config/notaSelectors');
+const config = require('../config/config');
+const notaSelectors = require('../config/notaSelectors');
 
 const getInfo = async (nfcKey) => {
   if (nfcKey) {
-    const url = config.urlNota
-      + config.tagNfc
-      + '='
-      + nfcKey
-      + '&'
-      + config.tagToken
-      + '='
-      + config.token;
+    const url = config.urlNota + nfcKey;
     nota = await search(url);
     if (nota) {
       console.log('get into finished');
@@ -27,11 +20,25 @@ const getInfo = async (nfcKey) => {
 
 const search = async (url) => {
   if(!url) return null;
-
+  let f = false;
   const browser = await puppeteer.launch();
   const page = await browser.newPage();
-  await page.goto(url);
+  await page.goto(url).catch(e => {
+    console.log(e);
+    f = true;
+  });
 
+  await page.waitForSelector(notaSelectors.emitente, {timeout: 5000}).catch(
+    e => {
+      console.log(e);
+      f = true;
+    }
+  );
+
+  if(f) {
+    await browser.close();
+    return null;
+  }
   const nota = {};
 
   // emitente
@@ -108,4 +115,4 @@ const search = async (url) => {
   return nota;
 };
 
-exports.getInfo = getInfo
+exports.getInfo = getInfo;
