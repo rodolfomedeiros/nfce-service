@@ -1,7 +1,7 @@
 {
-  "name": "cestao_backend",
+  "name": "nfce-rn-get-note",
   "version": "1.0.0",
-  "description": "An app to help and reduce costs on monthly purchases with help from the users",
+  "description": "An api to obtain RN/Brazil fiscal note information",
   "main": "src/index.js",
   "private": true,
   "scripts": {
@@ -10,7 +10,8 @@
   "dependencies": {
     "cors": "^2.8.5",
     "express": "^4.17.1",
-    "puppeteer": "^2.1.1"
+    "puppeteer": "^2.1.1",
+    "validator": "^12.2.0"
   },
   "devDependencies": {
     "nodemon": "^2.0.2"

@@ -2,9 +2,10 @@ const puppeteer = require('puppeteer');
 
 const config = require('../config/config');
 const notaSelectors = require('../config/notaSelectors');
+const { isNfceKey } = require('../validators/NotaValidator');
 
 const getInfo = async (nfcKey) => {
-  if (nfcKey) {
+  if (isNfceKey(nfcKey)) {
     const url = config.urlNota + nfcKey;
     nota = await search(url);
     if (nota) {
@@ -14,7 +15,7 @@ const getInfo = async (nfcKey) => {
       console.log('url null');
     }
   } else {
-    console.log('nfcKey null');
+    console.log('nfcKey invalid');
   }
 };
 
