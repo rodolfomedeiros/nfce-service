@@ -1,9 +1,14 @@
 const notaService = require('../services/NotaService');
 
 const info = async (req, res) => {
-  const nfcKey = req.query.nfcKey;
-  const nota = await notaService.getInfo(nfcKey);
-  return res.json(nota);
+  const nfceKey = req.query.nfceKey;
+  return await notaService.getInfo(nfceKey)
+  .then(
+    nota => res.json(nota)
+  )
+  .catch(
+    error => res.json(error)
+  );
 }
 
 exports.info = info;

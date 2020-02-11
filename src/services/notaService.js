@@ -3,10 +3,11 @@ const puppeteer = require('puppeteer');
 const config = require('../config/config');
 const notaSelectors = require('../config/notaSelectors');
 const { isNfceKey } = require('../validators/NotaValidator');
+const { NfceKeyError } = require('../errors/NotaErrors');
 
-const getInfo = async (nfcKey) => {
-  if (isNfceKey(nfcKey)) {
-    const url = config.urlNota + nfcKey;
+const getInfo = async (nfceKey) => {
+  if (isNfceKey(nfceKey)) {
+    const url = config.urlNota + nfceKey;
     nota = await search(url);
     if (nota) {
       console.log('get into finished');
@@ -15,7 +16,14 @@ const getInfo = async (nfcKey) => {
       console.log('url null');
     }
   } else {
-    console.log('nfcKey invalid');
+    throw new NfceKeyError({
+      message: 'Erro: verifique a chave de acesso',
+      type: 'validation_error',
+      errors: [{
+        message: 'A chave de acesso deve conter um total de 44 números e apenas números',
+        service: 'nfce_key_validation'
+      }]
+    });
   }
 };
 
