@@ -1,4 +1,6 @@
 const puppeteer = require('puppeteer');
+const request = require('request');
+const parse5  = require('parse5');
 
 const config = require('../config/config');
 const notaSelectors = require('../config/notaSelectors');
@@ -123,5 +125,14 @@ const search = async (url) => {
   await browser.close();
   return nota;
 };
+
+const searchBody = async (url) => {
+  
+  request(url, (err, res, body) => {
+    if (err) { return console.log(err); }
+    console.log(body.url);
+    console.log(body.explanation);
+  });
+}
 
 exports.getInfo = getInfo;
