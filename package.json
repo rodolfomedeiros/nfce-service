@@ -8,11 +8,10 @@
     "dev": "nodemon src/server.js"
   },
   "dependencies": {
+    "bent": "^7.1.2",
+    "cheerio": "^1.0.0-rc.3",
     "cors": "^2.8.5",
     "express": "^4.17.1",
-    "parse5": "^5.1.1",
-    "puppeteer": "^2.1.1",
-    "request": "^2.88.2",
     "validator": "^12.2.0"
   },
   "devDependencies": {

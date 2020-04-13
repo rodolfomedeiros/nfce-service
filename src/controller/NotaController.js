@@ -4,7 +4,10 @@ const info = async (req, res) => {
   const nfceKey = req.query.nfceKey;
   return await notaService.getInfo(nfceKey)
   .then(
-    nota => res.json(nota)
+    nota => {
+      console.log('nota fiscal encontrada!!!')
+      return res.json(nota)
+    }
   )
   .catch(
     error => res.json(error)
