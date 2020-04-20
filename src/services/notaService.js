@@ -28,11 +28,33 @@ const getInfo = async (nfceKey) => {
 const search = async (url) => {
   if(!url) return null;
 
-  const txt = await getHtmlString(url);
+  const txt = await getHtmlString(url)
 
   const $ = cheerio.load(txt);
 
-  const nota = {};
+  const nota = {
+    'emitente' : null,
+    'cnpjEmitente' : null,
+    'ieEmitente' : null,
+    'endEmitente' : null,
+    'cpfDestinatario' : null,
+    'valorTotal' : null,
+    'valorDesconto' : null,
+    'valorPago' : null,
+    'formaPag' : null,
+    'items' : null,
+    'chave' : null,
+    'dataEmissao' : null,
+    'dataAutorizacao' : null,
+    'protocolo' : null,
+    'situacao' : null
+  };
+
+  if (!($(notaSelectors.chave).text().trim() != null && $(notaSelectors.chave).text().trim() != "")){
+    return nota;
+  }
+
+  nota.chave = $(notaSelectors.chave).text().trim();
 
   // emitente
   nota.emitente = $(notaSelectors.emitente).text().split(':')[1].trim();
@@ -65,8 +87,6 @@ const search = async (url) => {
       value => value.length > 0
     );
   }).slice(1);
-
-  nota.chave = $(notaSelectors.chave).text().trim();
 
   nota.dataEmissao = $(notaSelectors.dataEmissao).text().split(':').slice(1).join(':').trim();
 
