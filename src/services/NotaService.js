@@ -26,7 +26,7 @@ const getInfo = async (nfceKey) => {
 const search = async (url) => {
   if(!url) return null;
 
-  const txt = await getHtmlString(url)
+  const txt = await getHtmlString(url);
 
   const $ = cheerio.load(txt);
 
