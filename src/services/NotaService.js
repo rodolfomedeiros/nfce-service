@@ -1,5 +1,3 @@
-'use strict'
-
 const cheerio = require('cheerio');
 const bent = require('bent');
 const getHtmlString = bent('string');
