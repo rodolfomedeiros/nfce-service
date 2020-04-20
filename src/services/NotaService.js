@@ -1,5 +1,3 @@
-'use strict'
-
 const cheerio = require('cheerio');
 const bent = require('bent');
 const getHtmlString = bent('string');
@@ -37,7 +35,7 @@ const search = async (url) => {
   // emitente
   nota.emitente = $(notaSelectors.emitente).text().split(':')[1].trim();
 
-  nota.cpfEmitente = $(notaSelectors.cpfEmitente).text().split(':')[1].trim();
+  nota.cnpjEmitente = $(notaSelectors.cnpjEmitente).text().split(':')[1].trim();
 
   nota.ieEmitente = $(notaSelectors.ieEmitente).text().split(':')[1].trim();
 

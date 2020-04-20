@@ -1,7 +1,7 @@
 
 // emitente
 const emitente = 'span#lblRazaoSocialEmitente';
-const cpfEmitente = 'span#lblCPFCNPJEmitente';
+const cnpjEmitente = 'span#lblCPFCNPJEmitente';
 const ieEmitente = 'span#lblInscricaoEstadualEmitente';
 const endEmitente = 'span#lblEnderecoEmitente';
 
@@ -27,7 +27,7 @@ const situacao = 'span#lblSituacao';
 
 module.exports = {
   emitente: emitente,
-  cpfEmitente: cpfEmitente,
+  cnpjEmitente: cnpjEmitente,
   ieEmitente: ieEmitente,
   endEmitente: endEmitente,
 
