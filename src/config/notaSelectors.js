@@ -7,6 +7,8 @@ const endEmitente = 'span#lblEnderecoEmitente';
 
 // destinatario
 const cpfDestinatario = 'span#lblCPFCNPJDestinatario';
+const destinatario = 'span#lblNomeRazaoSocialDestinatario';
+const endDestinatario = 'span#lblEnderecoDestinatario';
 
 // items
 const items = 'table#tbItensList tr';
@@ -32,6 +34,8 @@ module.exports = {
   endEmitente: endEmitente,
 
   cpfDestinatario: cpfDestinatario,
+  endDestinatario: endDestinatario,
+  destinatario: destinatario,
 
   items: items,
 

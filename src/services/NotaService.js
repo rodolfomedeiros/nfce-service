@@ -36,6 +36,8 @@ const search = async (url) => {
     'ieEmitente' : null,
     'endEmitente' : null,
     'cpfDestinatario' : null,
+    'endDestinatario' : null,
+    'destinatario' : null,
     'valorTotal' : null,
     'valorDesconto' : null,
     'valorPago' : null,
@@ -65,7 +67,9 @@ const search = async (url) => {
 
   // destinatario
   nota.cpfDestinatario = $(notaSelectors.cpfDestinatario).text().split(':')[1].trim();
-
+  nota.destinatario = $(notaSelectors.destinatario).text().split(':')[1].trim();
+  nota.endDestinatario = $(notaSelectors.endDestinatario).text().split(':')[1].trim();
+  
   // valores
   nota.valorTotal = $(notaSelectors.valorTotal).text().trim();
 
