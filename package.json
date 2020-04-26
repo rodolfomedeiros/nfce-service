@@ -2,9 +2,10 @@
   "name": "nfce-rn-get-note",
   "version": "1.0.0",
   "description": "An api to obtain RN/Brazil fiscal note information",
-  "main": "src/index.js",
+  "main": "src/server.js",
   "private": true,
   "scripts": {
+    "start": "node src/server.js",
     "dev": "nodemon src/server.js"
   },
   "dependencies": {
