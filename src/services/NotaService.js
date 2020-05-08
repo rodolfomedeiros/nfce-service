@@ -76,7 +76,9 @@ const search = async (url) => {
   nota.endEmitente = $(notaSelectors.endEmitente).text().split(':')[1].trim();
 
   // destinatario
-  nota.cpfDestinatario = $(notaSelectors.cpfDestinatario).text().split(':')[1].trim();
+  if($(notaSelectors.cpfDestinatario).text()) {
+    nota.cpfDestinatario = $(notaSelectors.cpfDestinatario).text().split(':')[1].trim();
+  }
 
   if ($(notaSelectors.destinatario).text()) {
     nota.destinatario = $(notaSelectors.destinatario).text().split(':')[1].trim();
