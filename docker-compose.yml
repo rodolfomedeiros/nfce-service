@@ -1,0 +1,13 @@
+version: '3'
+
+networks:
+  default:
+    external:
+      name: cestao
+
+services:
+  nfce-service:
+    build: .
+    container_name: nfce-service
+    ports:
+      - '3000:3000'
