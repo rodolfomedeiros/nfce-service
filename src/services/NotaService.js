@@ -43,6 +43,7 @@ const search = async (url) => {
   const $ = cheerio.load(txt);
 
   const nota = {
+    'server': false,
     'emitente': null,
     'cnpjEmitente': null,
     'ieEmitente': null,
@@ -111,6 +112,7 @@ const search = async (url) => {
   nota.protocolo = $(notaSelectors.protocolo).text().split(':')[1].trim();
   nota.situacao = $(notaSelectors.situacao).text().split(':')[1].trim();
 
+  nota.server = true;
   return nota;
 };
 
